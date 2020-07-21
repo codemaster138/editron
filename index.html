@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link rel="stylesheet" href="app/styles/style.css">
+  <link rel="stylesheet" href="app/styles/prism.css">
+  <link rel="stylesheet" href="app/styles/theme.css">
+  <script src="app/scripts/minquery.js"></script>
+  <script src="app/scripts/main.js"></script>
+  <script src="app/scripts/prism.js"></script>
+  <script src="app/scripts/files.js"></script>
+  <title>Editron</title>
+</head>
+
+<body>
+  <div class="headbar"></div>
+  <div class="tabbar horizontal-scroll">
+    <div class="tab" data-id="0">New Tab <span class="close">&times;</span></div>
+  </div>
+  <div class="editor">
+    <div class="editor-container">
+      <textarea rows="10" id="editor" class="allow-tabs" spellcheck="false"></textarea>
+      <pre class="hl language-js">
+        <code id="code">
+
+        </code>
+      </pre>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span id="pos">Ln 0, Col 0</span>
+    <span id="lang">JavaScript</span>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>

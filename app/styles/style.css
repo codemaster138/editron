@@ -1,0 +1,256 @@
+@font-face {
+  font-family: "DM Mono";
+  src: url("fonts/DM_Mono/DMMono-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DM Mono Italic";
+  src: url("fonts/DM_Mono/DMMono-MediumItalic.ttf") format("truetype");
+}
+
+:root {
+  font-size: 12px;
+  /* Theming */
+  --topbar-height: 22px;
+  --statusbar-height: 22px;
+  --editor-font-size: 1em;
+  --tabbar-height: 40px;
+  /* Colors */
+  --bg-2: #14151b;
+  /* Other */
+  --editor-font-weight: 500;
+  --editor-font: "DM Mono";
+  --editor-italic: "DM Mono Italic";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bg-2);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+body.platform-mac .headbar {
+  -webkit-app-region: drag;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: var(--topbar-height);
+  width: 100vw;
+  background-color: var(--bg-2);
+}
+
+body .tabbar {
+  position: absolute;
+  top: var(--topbar-height);
+  height: var(--tabbar-height);
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-2);
+  /* Handle */
+  /* Handle on hover */
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+body .tabbar::-webkit-scrollbar:horizontal {
+  height: 4px;
+}
+
+body .tabbar::-webkit-scrollbar-track {
+  background-color: var(--bg);
+}
+
+body .tabbar::-webkit-scrollbar-thumb {
+  background: var(--bg-2);
+}
+
+body .tabbar::-webkit-scrollbar-thumb:hover {
+  -webkit-filter: brightness(2);
+          filter: brightness(2);
+}
+
+body .tabbar .tab {
+  height: 100%;
+  min-width: 150px;
+  background-color: var(--bg);
+  margin-right: 1px;
+  opacity: 0.7;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px;
+  color: var(--text);
+  font-family: var(--editor-font);
+}
+
+body .tabbar .tab.active {
+  opacity: 1;
+}
+
+body .tabbar .tab .close {
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .tabbar .tab:hover .close {
+  opacity: 0.8;
+}
+
+body .editor {
+  position: absolute;
+  right: 0;
+  top: calc(var(--topbar-height) + var(--tabbar-height));
+  height: calc(100vh - var(--topbar-height) - var(--tabbar-height) - var(--statusbar-height));
+  width: 100%;
+}
+
+body .editor .editor-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+body .editor #editor {
+  line-height: 1.5;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--editor-font);
+  font-weight: var(--editor-font-weight);
+  padding: 8px;
+  resize: none;
+  color: #fff;
+  font-size: var(--editor-font-size);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  overflow-x: visible;
+}
+
+body .editor #editor::-webkit-input-placeholder {
+  color: white;
+}
+
+body .editor #editor:focus {
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+body .editor .hl {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: unset !important;
+}
+
+body .editor .hl #code {
+  display: block;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+}
+
+body .statusbar {
+  width: 100%;
+  height: var(--statusbar-height);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: var(--bg-2);
+  color: var(--text);
+  font-size: 12px;
+  font-family: system-ui;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse nowrap;
+          flex-flow: row-reverse nowrap;
+  padding: 0 8px;
+}
+
+body .statusbar span {
+  margin: 4px;
+}
+/*# sourceMappingURL=style.css.map */

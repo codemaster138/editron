@@ -1,0 +1,24 @@
+{
+  "name": "editron",
+  "version": "1.0.0",
+  "description": "A text editor",
+  "main": "main.js",
+  "scripts": {
+    "pack:mac": "time npx electron-packager . Editron --platfrom=darwin --arch=x64 --icon=app/assets/icons/mac.icns --overwrite",
+    "start": "npx electron .",
+    "build": "npm run pack:mac"
+  },
+  "repository": "https://github.com/codemaster138/editron",
+  "keywords": [
+    "Electron",
+    "code",
+    "text",
+    "editor"
+  ],
+  "author": "Jake Sarjeant",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-packager": "^15.0.0"
+  }
+}
