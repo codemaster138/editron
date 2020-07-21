@@ -23,3 +23,6 @@ Your pull request summary should well describe what you are trying to change or 
 
 ## Versioning
 This repo uses semantic versioning (see [semver.org](https://semver.org))
+
+## Feature Requests
+Before creating a feature request, please check [this file](blob/master/changelogs/v.next-proposed.md). It contains all proposed features that might become available in the next version. Otherwise, please create an issue from the 'feature request' issue template, and describe what feature you want to add. If you already know how to implement it, please **still create a feature request**. To avoid merge conflicts, we recommend you **don't create your pull request until we explicitly tell you to in a comment on your issue**.
