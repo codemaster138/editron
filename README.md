@@ -13,3 +13,9 @@ To build from source, download and unzip this repository. Open your terminal or 
 - windows: ```npx electron-packager --icon=app/assets/icons/win.ico```
 - macos: ```npx electron-packager --icon=app/assets/icons/mac.icns```
 - linux: ```npx electron-packager --icon=app/assets/icons/mac.png```
+
+# Contributing
+As with any open-source project, of course, everyone is welcome to contribute to Editron. But if you do, I would like you to follow these contribution guidelines.
+
+## Pull Requests
+Your pull request summary should well describe what you are trying to change or fix. Good documentation of your code using comments is greatly appreciated. **If we cannot understand what is going in your pull request, it will not be merged**.
