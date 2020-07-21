@@ -19,3 +19,6 @@ As with any open-source project, of course, everyone is welcome to contribute to
 
 ## Pull Requests
 Your pull request summary should well describe what you are trying to change or fix. Good documentation of your code using comments is greatly appreciated. **If we cannot understand what is going in your pull request, it will not be merged**.
+
+## Versioning
+This repo uses semantic versioning (see [semver.org](https://semver.org))
