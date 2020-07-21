@@ -70,11 +70,15 @@ app.tabs = {
      * @param {Number} id The tab number of the file
      */
     openFile(id) { // Show a file in the editor
-        while (id > this.files.length) {
-            id--;
+        while (id >= this.files.length) {
+            id = this.files.length - 1;
         }
-        this.renderTabBar();
+        if (id === -1){
+            id = 0;
+            this.createNewFile();
+        }
         this.curtab = id;
+        this.renderTabBar();
         $('#editor')[0].value = this.files[id].content;
         this.setType();
         $('#editor')[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'a' })) // Update editor
@@ -83,9 +87,9 @@ app.tabs = {
             el.classList.remove('active');
         });
         let tabs = $('.tab');
-        for (let t of tabs) {
-            if (t.dataset.id === id.toString()) {
-                t.classList.add('active');
+        for (let t in tabs) {
+            if (t === id) {
+                tabs[t].classList.add('active');
             }
         }
     },
@@ -99,7 +103,7 @@ app.tabs = {
             if (n && (n in this.files)) {
                 this.files.splice(n, 1);
                 if (this.curtab >= this.files.length) {
-                    this.curtab = 0;
+                    this.openFile(0);
                 }
                 if (this.files.length === 0) {
                     this.createNewFile();
