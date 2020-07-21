@@ -1,4 +1,4 @@
-## Propsed changes for version v0.0.1
+## Proposed changes for version v0.0.1
 In the upcomming version, v0.0.1, the following changes are planned:
 1. General quality-of-life improvements
 2. Pre-built releases for windows and linux (proposed)
