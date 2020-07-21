@@ -4,9 +4,11 @@
   "description": "A text editor",
   "main": "main.js",
   "scripts": {
-    "pack:mac": "time npx electron-packager . Editron --platfrom=darwin --arch=x64 --icon=app/assets/icons/mac.icns --overwrite",
+    "pack:mac": "time npx electron-packager . Editron --platfrom=darwin --arch=x64 --icon=app/assets/icons/mac.icns --out=release-builds --overwrite",
+    "pack:linux": "time npx electron-packager . Editron --overwrite --asar=true --platform=linux --arch=x64 --icon=app/assets/icons/mac.png --prune=true --out=release-builds",
+    "pack:win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=app/assets/icons/win.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Editron\"",
     "start": "npx electron .",
-    "build": "npm run pack:mac"
+    "build": "npm run pack:mac && npm run pack:linux && npm run pack:win"
   },
   "repository": "https://github.com/codemaster138/editron",
   "keywords": [
