@@ -1,5 +1,6 @@
 # Editron
 ![img](app/assets/icons/logo64.svg)
+
 Editron is a lightweight text & code editor.
 
 ## Installation
