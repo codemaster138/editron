@@ -1,11 +1,11 @@
 # Editron
-![img](https://github.com/codemaster138/editron/app/assets/icons/logo64.svg)
+![img](https://github.com/codemaster138/editron/raw/master/app/assets/icons/logo64.svg)
 
 Editron is a lightweight text & code editor.
 
 ## Screenshots
 ### Editing JavaScript
-![screenshot](https://github.com/codemaster138/editron/docs/assets/screenshots/js.png)
+![screenshot](https://github.com/codemaster138/editron/raw/master/docs/assets/screenshots/js.png)
 
 ## Installation
 **Note:** Editron is currently only available for macOS El Capitan (Because my computer is too old to build for any other or newer os). **However**, you're always welcome to [build this project from source](#source-build).
