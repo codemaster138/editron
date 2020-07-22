@@ -145,8 +145,8 @@ main {
 }
 
 main p,
-main p ol li,
-main p ul li,
+main ol li,
+main ul li,
 main p span,
 main p i {
 	color: #666;
