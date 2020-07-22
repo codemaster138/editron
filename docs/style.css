@@ -128,4 +128,37 @@ body .body .container ul {
   font-size: 1.6rem;
   margin: 1rem 0;
 }
+
+body footer {
+  width: 100%;
+  --s: 15vh;
+  min-height: var(--s);
+  background-color: #c9e6fd;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 3rem;
+}
+
+body footer img {
+  height: var(--s);
+}
+
+body footer a {
+  color: black;
+  font-size: 5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+}
 /*# sourceMappingURL=style.css.map */
