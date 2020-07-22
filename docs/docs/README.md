@@ -1,42 +1,34 @@
-# Easydoc
-Document your code like a pro.
+# Editron
+![img](app/assets/icons/logo64.svg)
 
-## DEMO
-Check out the demo here: [demo](http://learn.jakescode.net/node-js-the-complete-course)
+Editron is a lightweight text & code editor.
 
-## Usage
-Follow the installation instructions below. Then place your documentation into this README.md file.
+## Screenshots
+### Editing JavaScript
+![screenshot](docs/assets/screenshots/js.png)
 
 ## Installation
-To get started, just download easydoc from github using
-```bash
-git clone https://github.com/codemaster138/easydoc
-```
-You can now either upload the easydoc folder to your server or serve it yourself.
+**Note:** Editron is currently only available for macOS El Capitan (Because my computer is too old to build for any other or newer os). **However**, you're always welcome to [build this project from source](#source-build).
 
-## Customization
-Currently, easydoc is only slightly customizable, but more customization options are coming in the next releases.
+### MacOS El Capitan or newer
+**Note:** This might not work on newer systems. I can only confirm functionality on El Capitan.
 
-1. You can change the logo by replacing the contents of the logo div in the html. If you choose to use a text logo, use ```<span>``` elements to make parts of the text appear another color.
-2. Changing the primary color: In the main.css file, change the html element's ```--primary``` property to whatever color you want. Gradients are *__not__* supported.
+**Download the newest release**
 
-## Self-hosting
-If you already have a server like apache set up on your server, you can simply delete the server.js file and use your existing server.
-However, easydoc also comes with an own http server. If you want to use this, go to your terminal, move into your easydoc directory and type
-```bash
-npm install
-```
-To run the server, type
-```bash
-npm start <port>
-```
-replace port with the port you wish to use. Default is 9080.
+## Source Build
+To build from source, download and unzip this repository. Open your terminal or cmd and navigate to the folder where you unzipped the repo to. Now type ```npm install```. When the command has finished, type ```npm install --only=dev```. When this has finished, type one of the following:
+- windows: ```npx electron-packager --icon=app/assets/icons/win.ico```
+- macos: ```npx electron-packager --icon=app/assets/icons/mac.icns```
+- linux: ```npx electron-packager --icon=app/assets/icons/mac.png```
 
-## Contributing
-If you have any suggestions for improvements, please create an issue. The name must start with "**Suggestion:**"". If you have allready coded your improvement, please create a pull request. You must add a file, **pullrequest.md**, that describes all changes that you made in detail. Please make a as few changes as possible per pull request.
+# Contributing
+As with any open-source project, of course, everyone is welcome to contribute to Editron. But if you do, I would like you to follow these contribution guidelines.
 
-## Reporting problems
-If you encounter any problems with easydoc, please create an issue. The name should start with "**Issue:**" or "**Bug:**".
+## Pull Requests
+Your pull request summary should well describe what you are trying to change or fix. Good documentation of your code using comments is greatly appreciated. **If we cannot understand what is going in your pull request, it will not be merged**.
 
-## Upcomming in next version/Known issues
-Currently, the search bar does not work. In the next release, this will be fixed.
+## Versioning
+This repo uses semantic versioning (see [semver.org](https://semver.org))
+
+## Feature Requests
+Before creating a feature request, please check [this file](https://github.com/codemaster138/editron/blob/master/changelogs/v.next-proposed.md). It contains all proposed features that might become available in the next version. Otherwise, please create an issue from the 'feature request' issue template, and describe what feature you want to add. If you already know how to implement it, please **still create a feature request**. To avoid merge conflicts, we recommend you **don't create your pull request until we explicitly tell you to in a comment on your issue**.
