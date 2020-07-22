@@ -3,6 +3,10 @@
 
 Editron is a lightweight text & code editor.
 
+## Screenshots
+### Editing JavaScript
+![screenshot](docs/assets/screenshots/js.png)
+
 ## Installation
 **Note:** Editron is currently only available for macOS El Capitan (Because my computer is too old to build for any other or newer os). **However**, you're always welcome to [build this project from source](#source-build).
 
