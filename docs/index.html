@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editron</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div>
+            <h1>Editron</h1>
+            <p>Fast, lightweight text editing</p>
+        </div>
+
+        <img src="assets/screenshots/js2.png" alt="Demo Screenshot">
+
+        <div class="buttons">
+            <a href="https://github.com/codemaster138/editron/releases" class="button">Download</a>
+            <a href="https://github.com/codemaster138/editron/releases" class="button sec">Docs</a>
+        </div>
+    </div>
+    <section class="body">
+        <div class="container">
+            <h1>Installation</h1>
+            <p>To install editron, please visit
+                <a
+                    href="https://github.com/codemaster138/editron/releases">https://github.com/codemaster138/editron/releases</a>
+                and download the latest release. Please note that if you use windows, you need to compile the code
+                yourself.
+                Some newer versions of macos might not work either. I'm really sorry for the inconvenience!
+                <h2>Source build</h2>
+                <p>To build from source, download and unzip this repository. Open your terminal or cmd and navigate to
+                    the folder where you unzipped the repo to. Now type <code>npm install</code>. When the command has finished, type
+                    <code>npm install --only=dev</code>. When this has finished, type one of the following:</p>
+                <ul>
+                    <li>windows: <code>npx electron-packager --icon=app/assets/icons/win.ico</code></li>
+                    <li>macos: <code>npx electron-packager --icon=app/assets/icons/mac.icns</code></li>
+                    <li>linux: <code>npx electron-packager --icon=app/assets/icons/mac.png</code></li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+    <footer></footer>
+</body>
+
+</html>
