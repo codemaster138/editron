@@ -1,5 +1,5 @@
 # Editron
-![Editron Logo](app/assets/icons/mac.png =64x64)
+![](app/assets/logo64.svg)
 Editron is a lightweight text & code editor.
 
 ## Installation
