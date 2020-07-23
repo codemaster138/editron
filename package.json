@@ -15,7 +15,7 @@
     "text",
     "editor"
   ],
-  "author": "Jake Sarjeant",
+  "author": "Jake Sarjeant <pygamer138@github.com> (https://codemaster138.github.io)",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^9.1.0",
