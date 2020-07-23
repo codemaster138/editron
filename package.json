@@ -23,7 +23,7 @@
   },
   "dependencies": {},
   "build": {
-    "publish": "never",
+    "publish": null,
     "artifactName": "${os}-latest.${ext}",
     "directories": {
       "output": "dist"
