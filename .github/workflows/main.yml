@@ -29,7 +29,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: MacOS.zip
+          name: MacOS Binary
           path: dist/mac-latest.zip
       # - name: Create Release
       #   id: create_release
@@ -67,7 +67,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Windows.exe
+          name: Windows Binary
           path: dist/win-latest.exe
       # - name: Create Release
       #   id: create_release
@@ -105,7 +105,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Linux.deb
+          name: Linux Binary
           path: dist/linux-latest.deb
       # - name: Create Release
       #   id: create_release
@@ -135,23 +135,20 @@ jobs:
       - name: Download Linux Artifact
         uses: actions/download-artifact@v2
         with:
-          name: Linux.deb
+          name: Linux Binary
           path: artifacts/
 
       - name: Download Windows Artifact
         uses: actions/download-artifact@v2
         with:
-          name: Windows.exe
+          name: Windows Binary
           path: artifacts/
 
       - name: Download MacOS Artifact
         uses: actions/download-artifact@v2
         with:
-          name: MacOS.zip
+          name: MacOS Binary
           path: artifacts/
-      
-      - name: See artifacts
-        run: ls artifacts
 
       - name: Create release
         id: create_release
@@ -169,7 +166,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_name: macos.zip
-          asset_path: artifacts/MacOS.zip
+          asset_path: artifacts/mac-latest.zip
           asset_content_type: application/zip
       
       - name: Upload Windows Artifact
@@ -178,7 +175,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_name: windows.exe
-          asset_path: artifacts/Windows.exe
+          asset_path: artifacts/win-latest.exe
           asset_content_type: application/vnd.microsoft.portable-executable
       
       - name: Upload Linux Artifact
@@ -187,5 +184,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_name: linux.deb
-          asset_path: artifacts/Linux.deb
+          asset_path: artifacts/linux-latest.deb
           asset_content_type: application/vnd.debian.binary-package
