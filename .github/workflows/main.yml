@@ -31,10 +31,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release_name: "CI release (macos)"
-          tag-name: CI-macos.latest
+          tag_name: CI-macos.latest
           body: CI Automated release (Awaiting review and body edit)
           draft: true
-          prerelase: false
+          prerelease: false
       - name: Upload release Files
         id: upload_release_asset
         uses: actions/upload-release-asset@v1
