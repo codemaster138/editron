@@ -30,8 +30,8 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          release_name: "CI release (macos)"
-          tag_name: CI-macos.latest
+          release_name: "CI release"
+          tag_name: CI.latest
           body: CI Automated release (Awaiting review and body edit)
           draft: true
           prerelease: false
@@ -42,4 +42,70 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: "dist/mac-latest.zip"
           asset_name: mac-latest.zip
+          asset_content_type: application/zip
+  build_windows:
+    name: Windows Build
+    runs-on: windows-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install --only=dev
+      - name: Build Repo
+        run: npm run dist
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          release_name: "CI release"
+          tag_name: CI.latest
+          body: CI Automated release (Awaiting review and body edit)
+          draft: true
+          prerelease: false
+      - name: Upload release Files
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "dist/win-latest.zip"
+          asset_name: win-latest.zip
+          asset_content_type: application/zip
+  build_linux:
+    name: Linux Build
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install --only=dev
+      - name: Build Repo
+        run: npm run dist
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          release_name: "CI release"
+          tag_name: CI.latest
+          body: CI Automated release (Awaiting review and body edit)
+          draft: true
+          prerelease: false
+      - name: Upload release Files
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "dist/linux-latest.zip"
+          asset_name: linux-latest.zip
           asset_content_type: application/zip
