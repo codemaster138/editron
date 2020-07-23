@@ -73,9 +73,9 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "dist/win-latest.zip"
-          asset_name: win-latest.zip
-          asset_content_type: application/zip
+          asset_path: "dist/win-latest.exe"
+          asset_name: win-latest.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
   build_linux:
     name: Linux Build
     runs-on: ubuntu-latest

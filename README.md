@@ -1,3 +1,4 @@
+![CI](https://github.com/codemaster138/editron/workflows/CI/badge.svg)
 # Editron
 ![img](app/assets/icons/logo64.svg)
 
