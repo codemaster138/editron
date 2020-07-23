@@ -13,6 +13,8 @@ jobs:
   build_mac:
     name: Macos Build
     runs-on: macos-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -27,8 +29,6 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release_name: "CI release (macos)"
           tag_name: CI-macos.latest
