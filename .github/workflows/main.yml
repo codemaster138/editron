@@ -29,7 +29,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: MacOS binary
+          name: MacOS.zip
           path: dist/mac-latest.zip
       # - name: Create Release
       #   id: create_release
@@ -67,7 +67,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Windows binary
+          name: Windows.exe
           path: dist/win-latest.exe
       # - name: Create Release
       #   id: create_release
@@ -105,7 +105,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Linux binary
+          name: Linux.deb
           path: dist/linux-latest.deb
       # - name: Create Release
       #   id: create_release
@@ -124,3 +124,65 @@ jobs:
       #     asset_path: "dist/linux-latest.deb"
       #     asset_name: linux-latest.deb
       #     asset_content_type: application/vnd.debian.binary-package
+  
+  create_release:
+    name: Create a release
+    runs-on: ubuntu-latest
+    needs: [ build_windows, build_mac, build_linux ]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Download Linux Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: Linux.deb
+          path: artifacts/
+
+      - name: Download Windows Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: Windows.exe
+          path: artifacts/
+
+      - name: Download MacOS Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: MacOS.zip
+          path: artifacts/
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          release_name: "CI release"
+          tag_name: CI.latest
+          body: CI Automated release (Awaiting review and body edit)
+          draft: true
+          prerelease: false
+      
+      - name: Upload Mac Artifact
+        id: upload_mac_release_assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_name: macos.zip
+          asset_path: artifacts/MacOS.zip
+          asset_content_type: application/zip
+      
+      - name: Upload Windows Artifact
+        id: upload_win_release_assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_name: windows.exe
+          asset_path: artifacts/Windows.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
+      
+      - name: Upload Linux Artifact
+        id: upload_linux_release_assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_name: linux.deb
+          asset_path: artifacts/Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
