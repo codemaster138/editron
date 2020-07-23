@@ -149,6 +149,9 @@ jobs:
         with:
           name: MacOS.zip
           path: artifacts/
+      
+      - name: See artifacts
+        run: ls artifacts
 
       - name: Create release
         id: create_release
