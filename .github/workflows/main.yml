@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_mac:
+    name: Macos Build
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install --only=dev
+      - name: Build Repo
+        run: npm run dist
+      - name: Commit Repo:1
+        run: git add .
+      - name: Commit Repo:2
+        run: git commit -m "build for macos"
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          release_name: "CI release (macos)"
+          tag-name: CI-macos.latest
+          body: CI Automated release (Awaiting review and body edit)
+          draft: true
+          prerelase: false
+      - name: Upload release Files
+        id: upload_release_asset
+        uses: actions/upload-relase-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "dist/mac-latest.zip"
+          asset_name: mac-latest.zip
+          asset_type: application/zip
