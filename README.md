@@ -13,6 +13,7 @@ On the [releases page](https://github.com/codemaster138/editron/releases), downl
 
 ## Source Build
 To build from source, download and unzip this repository. Open your terminal or cmd and navigate to the folder where you unzipped the repo to. Now type ```npm install```. When the command has finished, type ```npm install --only=dev```. When this has finished, type ```npm run dist```. This will write the finished app to the ```dist``` directory
+
 # Contributing
 As with any open-source project, of course, everyone is welcome to contribute to Editron. But if you do, I would like you to follow these contribution guidelines.
 
