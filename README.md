@@ -9,7 +9,7 @@ Editron is a lightweight text & code editor.
 ![screenshot](docs/assets/screenshots/js.png)
 
 ## Installation
-On the [releases page](releases), download the package that applies to your system. For example, windows users should download ```Editron.exe```, linux users ```Editron.deb``` and macos users ```Editron.app```
+On the [releases page](https://github.com/codemaster138/editron/releases), download the package that applies to your system. For example, windows users should download ```Editron.exe```, linux users ```Editron.deb``` and macos users ```Editron.app```
 
 ## Source Build
 To build from source, download and unzip this repository. Open your terminal or cmd and navigate to the folder where you unzipped the repo to. Now type ```npm install```. When the command has finished, type ```npm install --only=dev```. When this has finished, type ```npm run dist```. This will write the finished app to the ```dist``` directory
